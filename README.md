@@ -75,6 +75,79 @@ HyperText Transfer Protocol (HTTP)
 
       Now that we have the IP address, we can go on in our journey.
       
+      ## TCP REQUEST HANDSHAKING
+        With the server IP address available, now the browser can initiate a TCP connection to that.
+
+        A TCP connection requires a bit of handshaking before it can be fully initialized and you can start sending data.
+
+        Once the connection is established, we can send the request
+
+        ### SENDING THE REQUEST
+          The request is a plain text document structured in a precise way determined by the communication protocol.
+
+          It’s composed of 3 parts:
+
+            the request line
+            the request header
+            the request body
+          
+        ### THE REQUEST LINE
+        The request line sets, on a single line:
+
+          the HTTP method
+          the resource location
+          the protocol version
+          Example:
+
+          GET / HTTP/1.1
+          THE REQUEST HEADER
+          The request header is a set of field: value pairs that set certain values.
+
+          There are 2 mandatory fields, one of which is Host, and the other is Connection, while all the other fields are optional:
+
+          Host: flaviocopes.com
+          Connection: close
+          Host indicates the domain name which we want to target, while Connection is always set to close unless the connection must be kept open.
+
+          Some of the most used header fields are:
+
+          Origin
+          Accept
+          Accept-Encoding
+          Cookie
+          Cache-Control
+          Dnt
+          but many more exist.
+
+          The header part is terminated by a blank line.
+
+        ### THE REQUEST BODY
+        The request body is optional, not used in GET requests but very much used in POST requests and sometimes in other verbs too, and it can contain data in JSON format.
+
+        Since we’re now analyzing a GET request, the body is blank and we’ll not look more into it.
+
+        ### THE RESPONSE
+        Once the request is sent, the server processes it and sends back a response.
+
+        The response starts with the status code and the status message. If the request is successful and returns a 200, it will start with:
+
+        200 OK
+        
+        The request might return a different status code and message, like one of these:
+
+        404 Not Found
+        
+        403 Forbidden
+        
+        301 Moved Permanently
+        
+        500 Internal Server Error
+        
+        304 Not Modified
+        
+        401 Unauthorized
+
+      
       
   2. HTTP Headers
   3. HTTP Methods - GET, POST, PUT, DELETE, OPTION, HEAD etc.
